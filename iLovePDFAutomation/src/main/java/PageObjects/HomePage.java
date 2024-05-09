@@ -41,7 +41,7 @@ public class HomePage extends BaseTest {
 	public  String fetchButtonText() {
 		
 		name = loginButton.getText();
-		System.out.println(name);
+		
 
 		return name;
 	}

@@ -1,10 +1,12 @@
 package stepDefinition;
 
 import org.openqa.selenium.By;
+
 import org.testng.Assert;
 
 import Baseclass.BaseTest;
 import PageObjects.HomePage;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -13,6 +15,7 @@ public class StepDefinitionImplementation extends BaseTest {
 
 	HomePage homepage = new HomePage();
 	String name;
+	
 
 	@Given("I landed on the proper website of ILovePDF")
 	public void I_landed_on_the_proper_website_of_ILovePDF() {
@@ -36,6 +39,8 @@ public class StepDefinitionImplementation extends BaseTest {
 		Assert.assertEquals(driver.findElement(By.xpath("//a[@href='/login']")).getText(), login);
 		
 	}
+	
+	
 
 	@Given("I am present on login page {string}")
 	public void I_am_present_on_login_page(String string) {
@@ -54,4 +59,6 @@ public class StepDefinitionImplementation extends BaseTest {
 		Assert.assertEquals(homepage.checkLoginFuntion(), "iLovePDF | Online PDF tools for PDF lovers");
 		
 	}
+	
+	
 }
