@@ -1,5 +1,6 @@
 package stepDefinition;
 
+import org.openqa.selenium.By;
 import org.testng.Assert;
 
 import Baseclass.BaseTest;
@@ -31,9 +32,9 @@ public class StepDefinitionImplementation extends BaseTest {
 
 	@Then("I verify the text of the Login button is equal to {string}")
 	public void i_verify_the_text_of_the_login_button_is_equal_to_login(String login) {
-		Assert.assertEquals(homepage.fetchButtonText(), login);
 		
-		System.out.println(login);
+		Assert.assertEquals(driver.findElement(By.xpath("//a[@href='/login']")).getText(), login);
+		
 	}
 
 	@Given("I am present on login page {string}")

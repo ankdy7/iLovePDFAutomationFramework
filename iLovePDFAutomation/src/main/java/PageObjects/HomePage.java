@@ -33,7 +33,8 @@ public class HomePage extends BaseTest {
 	
 
 	public  String clickOnLogin() {
-		loginButton.click();
+		clickMethod(loginButton);
+		//loginButton.click();
 		return driver.getTitle();
 	}
 
@@ -50,7 +51,7 @@ public class HomePage extends BaseTest {
 		email.sendKeys(email1);
 		password.sendKeys(password1);
 		
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
 		//loginButton2.click();
 		//driver.findElement(By.xpath("//div[@class='recaptcha-checkbox-border']")).click();
 
@@ -69,7 +70,8 @@ public class HomePage extends BaseTest {
 	}
 	
 	public  String checkLoginFuntion() {
-		loginButton2.click();
+		clickMethod(loginButton2);
+		//loginButton2.click();
 		return driver.getTitle();
 		
 	}
