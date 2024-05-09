@@ -27,7 +27,7 @@ public class BaseTest {
 	}
 
 	
-	public void setupDriver() {
+	public WebDriver setupDriver() {
 
 		if (prop.getProperty("browser").equalsIgnoreCase("chrome")) {
 
@@ -43,5 +43,7 @@ public class BaseTest {
 		driver.get("https://www.ilovepdf.com/");
 
 		driver.manage().window().maximize();
+		
+		return driver;
 	}
 }

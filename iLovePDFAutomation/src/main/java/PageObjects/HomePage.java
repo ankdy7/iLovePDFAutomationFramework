@@ -1,5 +1,6 @@
 package PageObjects;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -13,44 +14,58 @@ public class HomePage extends BaseTest {
 	}
 
 	@FindBy(xpath = "//a[@href='/login']")
-	WebElement loginButton;
+	static WebElement loginButton;
 
 	@FindBy(xpath = "//h1[@class=\"home-title__title\"]")
-	WebElement headerText;
+	static WebElement headerText;
 	
 	@FindBy(id = "loginEmail")
-	WebElement email;
+	static WebElement email;
 	
 	@FindBy(id = "inputPasswordAuth")
-	WebElement password;
+	static WebElement password;
 	
 	@FindBy(id = "loginBtn")
-	WebElement loginButton2;
+	static WebElement loginButton2;
 	
 	
 
-	public void clickOnLogin() {
+	public  String clickOnLogin() {
 		loginButton.click();
+		return driver.getTitle();
 	}
 
-	public String fetchButtonText() {
-		String name = loginButton.getText();
+	public  String fetchButtonText() {
+		return loginButton.getText();
 
-		return name;
+		
+	}
+	
+	public void loginApplication(String email1,String password1) throws InterruptedException
+	{
+		email.sendKeys(email1);
+		password.sendKeys(password1);
+		
+		
+		loginButton2.click();
+		driver.findElement(By.xpath("//div[@class='recaptcha-checkbox-border']")).click();
+		loginButton2.click();
+
 	}
 
-	public String fetchHeaderText() {
+
+	public  String fetchHeaderText() {
 		String name = headerText.getText();
 
 		return name;
 	}
-	public void enterCreds() {
+	public  void enterCreds() {
 		email.sendKeys(prop.getProperty("email"));
 		password.sendKeys(prop.getProperty("pass"));
 		
 	}
 	
-	public String checkLoginFuntion() {
+	public  String checkLoginFuntion() {
 		loginButton2.click();
 		return driver.getTitle();
 		
