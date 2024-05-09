@@ -15,8 +15,8 @@ public class StepDefinitionImplementation extends BaseTest {
 
 	@Given("I landed on the proper website of ILovePDF")
 	public void I_landed_on_the_proper_website_of_ILovePDF() {
-		homepage = setupDriver();
-		System.out.println("1");
+		setupDriver();
+		
 	}
 
 	@Given("I am present on homepage")
@@ -49,7 +49,8 @@ public class StepDefinitionImplementation extends BaseTest {
 
 	@Then("I should be logged in and redirected to the homepage")
 	public void redirected_to_homepage() {
-		//Assert.assertEquals(homepage.driver.getTitle(), "iLovePDF | Online PDF tools for PDF lovers");
+		
+		Assert.assertEquals(homepage.checkLoginFuntion(), "iLovePDF | Online PDF tools for PDF lovers");
 		
 	}
 }

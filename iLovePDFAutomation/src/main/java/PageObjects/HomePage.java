@@ -12,9 +12,11 @@ public class HomePage extends BaseTest {
 	public HomePage() {
 		PageFactory.initElements(driver, this);
 	}
-
+	
+	public String name;
+	
 	@FindBy(xpath = "//a[@href='/login']")
-	static WebElement loginButton;
+	WebElement loginButton;
 
 	@FindBy(xpath = "//h1[@class=\"home-title__title\"]")
 	static WebElement headerText;
@@ -36,9 +38,11 @@ public class HomePage extends BaseTest {
 	}
 
 	public  String fetchButtonText() {
-		return loginButton.getText();
-
 		
+		name = loginButton.getText();
+		System.out.println(name);
+
+		return name;
 	}
 	
 	public void loginApplication(String email1,String password1) throws InterruptedException
@@ -46,10 +50,9 @@ public class HomePage extends BaseTest {
 		email.sendKeys(email1);
 		password.sendKeys(password1);
 		
-		
-		loginButton2.click();
-		driver.findElement(By.xpath("//div[@class='recaptcha-checkbox-border']")).click();
-		loginButton2.click();
+		Thread.sleep(3000);
+		//loginButton2.click();
+		//driver.findElement(By.xpath("//div[@class='recaptcha-checkbox-border']")).click();
 
 	}
 
